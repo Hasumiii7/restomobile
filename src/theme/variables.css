@@ -1,0 +1,171 @@
+/* For information on how to create your own theme, please refer to:
+http://ionicframework.com/docs/theming/ */
+
+:root {
+	--color-bg: #0f0f1a;
+	--color-text: #ffffff;
+	--color-border: #3b3f63;
+	--color-card-bg: #131225;
+	--color-modal-bg: #1f1f36;
+	--color-input-bg: #151528;
+	--color-primary: #2f7bc4;
+	--color-danger: #c04a4a;
+	--color-error: #ff8080;
+	--overlay-bg: rgba(0, 0, 0, 0.45);
+}
+
+/* Light theme */
+[data-theme="light"] {
+	--color-bg: #ffffff;
+	--color-text: #0f1724;
+	--color-border: #cbd5e1;
+	--color-card-bg: #f8fafc;
+	--color-modal-bg: #ffffff;
+	--color-input-bg: #ffffff;
+	--color-primary: #2563eb;
+	--color-danger: #dc2626;
+	--color-error: #b91c1c;
+	--overlay-bg: rgba(2, 6, 23, 0.25);
+}
+
+/* Sunset / colorful theme */
+[data-theme="sunset"] {
+	--color-bg: #fff7ed;
+	--color-text: #1f2937;
+	--color-border: #f59e0b;
+	--color-card-bg: #fff3e0;
+	--color-modal-bg: #ffedd5;
+	--color-input-bg: #fff7f0;
+	--color-primary: #ef4444;
+	--color-danger: #b91c1c;
+	--color-error: #ff5722;
+	--overlay-bg: rgba(255, 146, 85, 0.18);
+}
+
+html, body {
+	background: var(--color-bg);
+	color: var(--color-text);
+}
+
+/* UI tokens for spacing, radius, shadows, typography */
+:root {
+	--font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	--base-font-size: 15px;
+	--heading-weight: 600;
+	--radius-lg: 14px;
+	--radius-md: 12px;
+	--shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.08);
+	--shadow-subtle: 0 4px 10px rgba(15, 23, 42, 0.06);
+	--app-padding: 16px;
+	--transition: 0.28s ease;
+}
+
+/* Load Google Font (mobile-first) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Mobile-first base styles */
+* { box-sizing: border-box; }
+html { font-size: var(--base-font-size); -webkit-text-size-adjust: 100%; }
+body {
+	font-family: var(--font-sans);
+	background: var(--color-bg);
+	color: var(--color-text);
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Ionic page/content padding override to be comfortable on mobile */
+ion-content, .ion-page, .app-root {
+	padding: var(--app-padding);
+}
+
+/* Header / Navbar */
+.app-header, header, ion-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px 0;
+}
+.app-title, h1, ion-title {
+	font-size: 1.05rem;
+	font-weight: var(--heading-weight);
+	margin: 0;
+}
+
+/* Card design (menu, meja, etc.) */
+.card {
+	background: var(--color-card-bg);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-soft);
+	padding: 12px;
+	border: 1px solid rgba(0,0,0,0.04);
+	transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-subtle); }
+
+/* Menu / grid helpers */
+.menu-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 12px;
+}
+
+/* Buttons */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 10px 14px;
+	border-radius: 12px;
+	border: none;
+	cursor: pointer;
+	transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: #E67E22; color: #fff; box-shadow: 0 6px 18px rgba(230,126,34,0.12); }
+.btn-ghost { background: transparent; color: var(--color-text); border: 1px solid rgba(255,255,255,0.06); }
+
+/* Inputs & selects */
+.form-field, input, select, textarea {
+	width: 100%;
+	padding: 10px 12px;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border);
+	background: var(--color-input-bg);
+	color: var(--color-text);
+	outline: none;
+	transition: box-shadow var(--transition), border-color var(--transition);
+}
+.form-field:focus, input:focus, select:focus, textarea:focus { box-shadow: 0 6px 18px rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.08); }
+
+/* Subtle helpers */
+.muted { color: rgba(255,255,255,0.7); font-size: .92rem; }
+.section { margin: 12px 0; }
+
+/* Light / warm theme overrides already defined above for data-theme="sunset"
+	 Add lighter backgrounds for those themes to align with design goals */
+[data-theme="sunset"] {
+	--color-bg: #fcfbf9;
+	--color-text: #1f2937;
+	--color-border: #e6dccf;
+	--color-card-bg: #ffffff;
+	--color-modal-bg: #fffaf5;
+	--color-input-bg: #ffffff;
+	--color-primary: #E67E22; /* warm orange */
+	--color-danger: #C0392B;
+	--color-error: #b91c1c;
+	--overlay-bg: rgba(2,6,23,0.06);
+}
+
+/* Desktop / tablet adjustments */
+@media (min-width: 640px) {
+	.menu-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+@media (min-width: 992px) {
+	.menu-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+	html { font-size: 16px; }
+}
+
+
